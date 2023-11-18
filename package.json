@@ -18,7 +18,7 @@
     "build:ts": "tsup index.ts",
     "install": "npm run build:neon && npm run build:ts",
     "test": "cargo test",
-    "postinstall": "mv .package.json dist/package.json"
+    "postinstall": "cp .package.json dist/package.json"
   },
   "author": "ashigirl96",
   "license": "MIT",

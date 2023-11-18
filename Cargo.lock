@@ -638,11 +638,20 @@ version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28e15415261d880aed48122e917a45e87bb82cf0260bb6db48bbab44b7464373"
 dependencies = [
- "neon-build",
+ "neon-build 0.10.1",
  "neon-macros",
  "neon-runtime",
  "semver",
  "smallvec",
+]
+
+[[package]]
+name = "neon-build"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "neon",
+ "voicevox_core",
 ]
 
 [[package]]
@@ -1323,15 +1332,6 @@ dependencies = [
  "thiserror",
  "tracing",
  "windows",
-]
-
-[[package]]
-name = "neon-build"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "neon",
- "voicevox_core",
 ]
 
 [[package]]
