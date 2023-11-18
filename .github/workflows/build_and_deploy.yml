@@ -1,16 +1,23 @@
 name: build and deploy workflow
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "バージョン情報（A.BB.C / A.BB.C-preview.D）"
-        required: true
+  # workflow_dispatch:
+  #   inputs:
+  #     version:
+  #       description: "バージョン情報（A.BB.C / A.BB.C-preview.D）"
+  #       required: true
+  push:
+    branches:
+        - main
 env:
   VERSION: ${{ github.event.release.tag_name || inputs.version || '0.0.0' }}
 defaults:
   run:
     shell: bash
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build:
@@ -39,6 +46,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
+          scope: '@ashigirl96'
       - name: Build binary
         id: build-index
         run: |
