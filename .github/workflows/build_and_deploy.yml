@@ -40,7 +40,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@voicevox-node-api'
-      - run: npm install
       - name: Build binary
         id: build-index
         run: |
