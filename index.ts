@@ -1,4 +1,4 @@
 // @ts-ignore
-import Module from './dist/index.node'
+import Module from './index.node'
 
 export const hello: () => string = Module.hello
