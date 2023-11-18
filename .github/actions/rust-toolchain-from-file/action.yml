@@ -1,0 +1,21 @@
+inputs:
+  targets:
+    description: ''
+    required: false
+  components:
+    description: ''
+    required: false
+
+name: ''
+description: ''
+runs:
+  using: composite
+  steps:
+    - id: read-rust-toolchain
+      shell: bash
+      run: echo "toolchain=$(cat ./rust-toolchain)" >> "$GITHUB_OUTPUT"
+    - uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: ${{ steps.read-rust-toolchain.outputs.toolchain }}
+        targets: ${{ inputs.targets }}
+        components: ${{ inputs.components }}
