@@ -22,7 +22,9 @@ permissions:
 jobs:
   build:
     permissions:
-      contents: write
+      contents: read
+      packages: write
+      # contents: write
     needs: config
     runs-on: ${{ matrix.os }}
     strategy:
