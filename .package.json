@@ -2,31 +2,19 @@
   "name": "neon-build",
   "version": "0.1.0",
   "description": "This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).",
-  "main": "./dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "index.mjs",
+      "require": "index.js"
     },
-    "./dts": "./dist/index.d.ts",
-    "./dmts": "./dist/index.d.mts"
-  },
-  "scripts": {
-    "build:neon": "cargo-cp-artifact -nc ./dist/index.node -- cargo build --message-format=json-render-diagnostics --release",
-    "build:ts": "tsup index.ts",
-    "install": "npm run build:neon && npm run build:ts",
-    "test": "cargo test",
-    "postinstall": "mv .package.json dist/package.json"
+    "./dts": "index.d.ts",
+    "./dmts": "index.d.mts"
   },
   "author": "ashigirl96",
   "license": "MIT",
-  "devDependencies": {
-    "cargo-cp-artifact": "^0.1",
-    "tsup": "7.2.0",
-    "typescript": "^5.2.2"
-  },
   "keywords": [
     "rust",
     "neon",

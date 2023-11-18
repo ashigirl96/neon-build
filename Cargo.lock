@@ -1326,7 +1326,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "voicevox_core_node_api"
+name = "neon-build"
 version = "0.1.0"
 dependencies = [
  "anyhow",
