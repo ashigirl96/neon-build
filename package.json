@@ -2,18 +2,30 @@
   "name": "voicevox_core_node_api",
   "version": "0.1.0",
   "description": "This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).",
-  "main": "index.node",
+  "main": "./dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./dts": "./dist/index.d.ts",
+    "./dmts": "./dist/index.d.mts"
+  },
   "scripts": {
-    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build --",
-    "build-release": "npm run build -- --release",
-    "install": "npm run build-release",
-    "test": "cargo test"
+    "build:neon": "cargo-cp-artifact -nc ./dist/index.node -- cargo build --message-format=json-render-diagnostics --release",
+    "build:ts": "tsup index.ts",
+    "install": "npm run build:neon && npm run build:ts",
+    "test": "cargo test",
+    "postinstall": "ls ./dist"
   },
   "author": "ashigirl96",
   "license": "MIT",
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
+    "cargo-cp-artifact": "^0.1",
+    "tsup": "7.2.0",
+    "typescript": "^5.2.2"
   },
   "keywords": [
     "rust",
@@ -30,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/ashigirl96/neon-build/issues"
   },
-  "homepage": "https://github.com/ashigirl96/neon-build#readme"
+  "homepage": "https://github.com/ashigirl96/neon-build#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

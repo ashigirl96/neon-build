@@ -12,6 +12,8 @@ crate-type = ["cdylib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.75"
+voicevox_core = { git = "https://github.com/VOICEVOX/voicevox_core", tag = "0.14.4" }
 
 [dependencies.neon]
 version = "0.10"
