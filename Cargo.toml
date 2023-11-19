@@ -5,6 +5,7 @@ authors = ["ashigirl96"]
 license = "MIT"
 edition = "2018"
 exclude = ["index.node"]
+build = "build.rs"
 
 [lib]
 crate-type = ["cdylib"]
@@ -13,7 +14,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 anyhow = "1.0.75"
-voicevox_core = { git = "https://github.com/VOICEVOX/voicevox_core", tag = "0.14.4" }
+voicevox_core = { git = "https://github.com/VOICEVOX/voicevox_core", branch = "main" }
+log = "0.4.20"
 
 [dependencies.neon]
 version = "0.10"

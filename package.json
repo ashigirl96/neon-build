@@ -7,7 +7,7 @@
     "build:neon": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics --release",
     "install": "npm run build:neon",
     "test": "cargo test",
-    "postinstall": "mkdir dist && cp index.ts index.node dist && jq 'del(.scripts)' package.json > ./dist/package.json"
+    "postinstall": "mkdir -p dist && cp index.ts index.node dist && jq 'del(.scripts)' package.json > ./dist/package.json"
   },
   "author": "ashigirl96",
   "license": "MIT",

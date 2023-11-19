@@ -1,11 +1,6 @@
 name: build and deploy workflow
 
 on:
-  # workflow_dispatch:
-  #   inputs:
-  #     version:
-  #       description: "バージョン情報（A.BB.C / A.BB.C-preview.D）"
-  #       required: true
   push:
     branches:
         - main
@@ -60,15 +55,6 @@ jobs:
         run: |
           cd ./dist
           npm publish
-      # - name: Upload index.node to Release
-      #   if: fromJson(needs.config.outputs.deploy)
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     prerelease: true
-      #     tag_name: ${{ env.VERSION }}
-      #     files: |-
-      #       ${{ steps.build-index.outputs.index }}
-      #     target_commitish: ${{ github.sha }}
   config: # 全 jobs で利用する定数の定義。実行対象の条件をフィルタリングする。
     runs-on: ubuntu-latest
     outputs:
