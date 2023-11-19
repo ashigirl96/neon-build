@@ -1,24 +1,13 @@
 {
   "name": "@ashigirl96/neon-build",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).",
-  "main": "index.js",
-  "module": "index.mjs",
-  "types": "index.d.ts",
-  "exports": {
-    ".": {
-      "import": "index.mjs",
-      "require": "index.js"
-    },
-    "./dts": "index.d.ts",
-    "./dmts": "index.d.mts"
-  },
+  "main": "index.ts",
   "scripts": {
     "build:neon": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics --release",
-    "build:ts": "tsup index.ts",
-    "install": "npm run build:neon && npm run build:ts",
+    "install": "npm run build:neon",
     "test": "cargo test",
-    "postinstall": "cp index* dist/ && cp package.json dist/package.json"
+    "postinstall": "mkdir dist && cp index.ts index.node package.json dist"
   },
   "author": "ashigirl96",
   "license": "MIT",
